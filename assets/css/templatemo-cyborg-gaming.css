@@ -213,6 +213,61 @@ p {
     margin-bottom: 0px;
 }
 
+h5 
+{
+    color: #666;
+}
+
+
+
+.descContainer
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+p.desc
+{
+    color:#eee;
+}
+
+
+a.desc
+{
+    color: #666;
+    border-bottom: 1px #666 dotted;
+}
+
+a.desc:hover
+{color:#e75e8d;}
+
+.descContainer p
+{
+    color:#eee;
+}
+
+.descContainer a
+{
+    color: #666;
+    border-bottom: 1px #666 dotted;
+}
+
+.descContainer a:hover
+{
+    color:#e75e8d;
+}
+
+.descContainer img
+{
+    max-width: 100%;
+    height:auto;
+    border-radius: 25%;
+    
+}
+
+
 ::selection {
     background: #e75e8d;
     color: #fff;
@@ -241,6 +296,7 @@ p {
     transition: all .3s;
     position: relative;
     overflow: hidden;
+    margin-top:20px;
 }
 
 .main-button a:hover {
@@ -260,7 +316,7 @@ p {
     text-transform: capitalize;
     letter-spacing: 0.5px;
     transition: all .3s;
-    position: relative;
+    position: absolute;
     overflow: hidden;
 }
 
@@ -450,6 +506,10 @@ header.sticky
     border-radius: 50px;
 }
 
+.header-area .main-nav  .detailsLogo
+{
+    position:static;
+}
 .background-header .main-nav {
     padding: 0px;
     background-color: transparent;
@@ -871,6 +931,8 @@ Most Popular Style
     margin-bottom: 30px;
 }
 
+
+
 .most-popular .item .item {
     padding: 0px;
     border-radius: 0px;
@@ -880,6 +942,41 @@ Most Popular Style
 
 .most-popular .item img {
     border-radius: 23px;
+    display: block;
+    width:100%;
+    height:auto;
+    transition:.5s ease;
+    backface-visibility: hidden;
+}
+
+.most-popular .middle
+{
+    transition: .5 ease;
+    opacity: 0;
+    position: relative;
+    left:50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.most-popular .item:hover .image
+{
+    opacity: 0.3;
+}
+
+.most-popular .item:hover .middle
+{
+    opacity:1;
+}
+
+.itemtext
+{
+    background-color:#1e1e1e;
+    color:white;
+    font-size: 16px;
+    padding: 16px;
+    border-radius: 25%;
+    text-align: center;
 }
 
 .most-popular .item h4 {
