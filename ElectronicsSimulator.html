@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name ="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+      <title>Electronics Simulator (Under Development)</title>
+
+       <!-- Bootstrap core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+      <!-- Additional CSS Files -->
+      <link rel="stylesheet" href="assets/css/fontawesome.css">
+      <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
+      <link rel="stylesheet" href="assets/css/owl.css">
+      <link rel="stylesheet" href="assets/css/animate.css">
+      <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+      <link rel="icon" type="image/x-icon" href="assets/images/electronicsSimulatorImage.PNG">
+
+    </head>
+
+    <body>
+      
+      <!-- ***** Preloader Start ***** -->
+      <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+          <span class="dot"></span>
+          <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <!-- ***** Preloader End ***** -->
+ 
+        <!-- ***** Header Area Start *****-->
+        <header class = "header-area">
+          <div class = "container">
+              <nav class = "main-nav">
+                  <!-- ***** Logo Start *****-->
+                  <a href="index.html" class="logo">
+                      <img src="assets/images/salmaLogo2-removebg-preview.png" alt="Logo">
+                  </a>
+                  <!-- ***** Logo End *****-->
+                  
+                  <!-- Menu Start-->
+                  <ul class="nav">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="">Source Code</a></li>
+                      <li><a href="assets/files/CV-Dec2022.pdf" download="salma_ramadan_CV">Resume</a></li>
+                  </ul>
+                  
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                  <!-- ***** Menu End ***** -->
+              </nav>
+          </div>
+      </header>
+      <!-- ***** Header Area End ***** -->
+
+
+      <!-- page container -->
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-content">
+              
+              <!-- ***** Main Banner Start *****-->
+              <div class="main-banner">
+                <div class="row">
+                    <h4 style="text-align: center;"><em>Electronics Simulator</em></h4>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/9_q3RJvoOyU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+              </div>
+              <!-- ***** Main Banner End *****-->
+
+                <!-- decription -->
+                
+              <div class="most-popular">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="heading-section">
+                            <h4>Description</h4>
+                        </div>
+                        <div class="row">
+                            <h5>Original Game</h5>
+                            <p class="desc">I didn't find an electronics Simulator on Oculus Store so I made my own, the mechanisms and working idea was designed by me</p>
+                        </div>
+                    </div>
+                </div>
+              </div>  
+
+              <div class="most-popular">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="heading-section">
+                            <h4>Learnt while making the game</h4>
+                        </div>
+                        <div class="row">
+                            <p class="desc">● XR Interaction Toolkit</p>
+                            <p class="desc">● designed the logic for game mechanisms from scratch</p>
+                            <p class="desc">● advanced C#</p>
+                            <p class="desc">● writing clean and maintable code </p>
+                        </div>
+                    </div>
+                </div>
+              </div>  
+
+
+              <div class="most-popular">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="heading-section">
+                            <h4>Thought process</h4>
+                        </div>
+                        <h5>Connection Checking</h5>
+                        <div class="descContainer">
+                          <p>Connection Checking works for any combination of circuit components where it dynamically checks at every node of the circuit to see : 1. if the circuit is connected or not, 2. if the components are connected in correct polarity, 3. if there is a burnt component connected</p>
+                          <img src="assets/images/checkConnectionsAlgorithm2.jpeg" style="border-radius: 0%;">
+                          <img src="assets/images/checkConnectionsAlgorithm1.jpeg" style="border-radius:0%">
+                        </div>
+
+                        <div class="descContainer">
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/A5O2f-w0wj0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                    
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/9Sdhx5pfZUg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                    
+                          <iframe width="560" height="315" src="https://www.youtube.com/embed/dpHKh_N7aas" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                  
+    
+                        </div>
+               
+
+                        <h5><br><br>Resistor UI</h5>
+                        <div class="descContainer">
+                          <p>the user enter the value of resistor it wants and the nearest real value of this resistance is instantiated 
+                            <br><br>
+                            1. User enter the <b><em>value</em></b> and <b><em>symbol</em></b> through the keypad<br>
+                            2. we convert the value to the nearest real value available<br>
+                            3. convert value into resistance in ohms by interpreting the symbol<br>
+                            4. determine color bands (no1band, no2band, multiplier band) of resistance based on Resistance value in ohms<br>
+                            5. assign resistance and color bands to Instantiated Resistor
+                          </p>
+                        <img src="assets/images/UI_resistor.jpg">
+                        </div>
+
+                        <h5>wire connection</h5>
+                        <div class="descContainer">
+                          <p>by pressing primary button right (A)
+                            <br><br>
+                            1. checks if we are in simulation mode or connection mode
+                            2.1 if in simulation mode: no wire instantiated and cannot connect
+                            2.2 if in connection mode: wire instantiated and connect wire to the terminal of component
+                            (each terminal of components has socket that interacts with the wire terminal to connect to it)
+                          </p>
+                        </div>
+
+                      </div>
+                    </div>
+                </div>
+              </div>  
+
+
+              <div class="most-popular">
+          
+                <div class="heading-section">
+                    <h4>First Try<br></h4>
+                </div>
+                
+                <div class="container">
+                    <div class="row">
+                      <h5 style="text-align: center;">First Try of making Electronics Simulator<br><br></h5>
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/Pg_fKCtBOg0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      <p class="desc">I first tried making the game 4 months ago using <b><em>Oculus Integration</em></b> but the code was very spaghetti and it contained some bugs</p>
+                    </div> 
+                </div>
+                      
+
+
+            </div>
+            
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+        <!-- Scripts -->
+        <!-- BootStrap core Javascript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+      
+        <script src="assets/js/isotope.min.js"></script>
+        <script src="assets/js/owl-carousel.js"></script>
+        <script src="assets/js/tabs.js"></script>
+        <script src="assets/js/popup.js"></script>
+        <script src="assets/js/custom.js"></script>
+
+        <script type="text/javascript">
+            window.addEventListener("scroll", function()
+            {var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY>0)
+        })
+        </script>
+  
+
+    </body>
+
+
+
+  </html>
