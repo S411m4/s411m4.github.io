@@ -1,977 +1,706 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Home">
-    <meta name="author" content="Salma">
+  <script>
+    // Early theme application before page render to prevent flicker
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salma Ramadan Portfolio</title>
 
-    <title>Salma Ramadan portfolio</title>
+  <!-- Tailwind CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" type="image/x-icon" href="assets/images/youkii.png">
 
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/unicons.css">
-    <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="./assets/css/tooplate-style.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" type="image/x-icon" href="./assets/images/myAvatar.png">
+</head>
+<body>
+  <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-[#fdf6ec] dark:bg-[#2a1f1a] transition-opacity duration-500">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <div class="loader-icon">
+        🐾 <!-- or ✦ or 🔆 or 🌀 -->
+      </div>
+    </div>
+  </div>
 
-  </head>
-  <body class="dark-mode">
+  <header class="sticky top-0 z-50 bg-[#fef8ec] dark:bg-[#2c2621] shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#about" class="text-2xl font-bold text-brown-800 dark:text-[#e8dccf]">Youkii</a>
+  
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-6 text-brown-800 dark:text-[#e8dccf] font-medium">
+        <nav class="flex space-x-6">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#tools" class="nav-link">Tools</a>
+          <a href="#portfolio" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <!-- Theme Toggle -->
+<button id="toggleTheme" class="theme-toggle p-2 rounded-full ml-2">🌓</button>
+      </div>
+  
+      <!-- Mobile Nav -->
+      <div class="md:hidden flex items-center gap-3">
+        <button id="nav-toggle" class="focus:outline-none order-1">
+          <svg class="w-7 h-7 text-brown-800 dark:text-[#e8dccf]" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      <button id="toggleThemeMobile" class="theme-toggle p-2 rounded-full order-2">🌓</button>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden flex flex-col items-start space-y-3 pb-6 px-6 text-brown-800 dark:text-[#e8dccf] font-medium">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#opensource" class="nav-link">Tools</a>
+      <a href="#portfolio" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+  </header>
+  
 
-      <!-- ***** Preloader Start *****-->
+  <!-- Hero / About Me Section -->
+  <section id="about" class="py-8 flex flex-col-reverse md:flex-row items-center justify-center px-6 text-center md:text-left">
+    <div class="max-w-xl md:max-w-2xl lg:max-w-4xl space-y-6 flex-shrink-0 min-w-0">
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+        <div class="mb-5">Hey, I am Salma</div>
+        <div class="relative w-full text-center md:text-left">
+          <!-- Invisible placeholder to reserve space -->
+          <span class="invisible text-yellow-500 text-4xl md:text-6xl font-bold block">
+            a Curious Coder
+          </span>
         
-      <div id="js-preloader" class="js-preloader">
-        <div class="preloader-inner">
-          <span class="dot"></span>
-          <div class="dots">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </div>
-    
-    <!-- ***** Preloader End *****-->
-
-    <!-- MENU -->
-    <nav class="navbar navbar-expand-sm navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="index.html"><img src = "assets/images/myAvatarResized.png"> Salma</a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link"><span data-hover="About">About</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#project" class="nav-link"><span data-hover="Projects">Projects</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#resume" class="nav-link"><span data-hover="Resume">Resume</span></a>
-                    </li>
-                    
-                </ul>
-
-                <!-- <ul class="navbar-nav ml-lg-auto">
-                    <div class="ml-lg-4">
-                      <div class="color-mode d-lg-flex justify-content-center align-items-center">
-                        <i class="color-mode-icon active"></i>
-                        Color mode
-                      </div>
-                    </div>
-                </ul> -->
-            </div>
-        </div>
-    </nav>
-
-     <!-- ABOUT -->
-     <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
-      <div class="container">
-          <div class="row">
-              
-              <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
-                  <div class="about-text">
-                      <h1 class="animated animated-text">
-                          <span class="mr-2">Hey folks, I'm</span>
-                              <div class="animated-info">
-                                <span class="animated-item">Salma</span>
-                                <span class="animated-item">VR developer</span>
-                                <span class="animated-item">Unity developer</span>
-                              </div>
-                      </h1>
-
-                      <p>A curious girl who fell in love with VR Development</p>
-                      <p>After hustling with embdedded systems, AI, web dev, and coding in C++, python and even assembly (and many other languages)</p>
-                      <p><b>I finally found my passion in VR</b></p>
-                      <p>I started in 2022 with Unity and since then I’ve played around with everything from simple VR apps to MR features on both Quest 2 and 3</p>
-                      <p>Here are some of my favorite projects I worked on</p>
-                                            
-                      <div class="custom-btn-group mt-4">
-                        <a href="#" class="btn mr-lg-2 custom-btn"><i class='uil uil-file-alt'></i> Download Resume</a>
-                        <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Get a free quote</a>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-lg-5 col-md-12 col-12">
-                  <div class="about-image svg">
-                      <img src="assets/images/avatar/yoki.png" class="img-fluid" alt="svg image">
-                  </div>
-              </div>
-
-          </div>
-      </div>
+          <!-- Animated text -->
+          <span
+            id="typewriter"
+            class="absolute inset-0 text-yellow-500 text-4xl md:text-6xl font-bold block whitespace-nowrap"
+          ></span>
+        </div>        
+      </h1>
+      
+      <p class="text-lg md:text-xl">
+        After hustling with embedded systems, AI, web dev,<br>coding in C++, python and even assembly (and many other languages).
+        <br><b>I finally found my passion in VR</b><br>
+        I started in 2022 with Unity and since then I’ve played around with everything from simple VR apps to MR features on both Quest 2 and 3
+      </p>
+    </div>
+    <div class="mb-8 md:mb-0">
+      <div class="cat-container relative w-48 md:w-64 mx-auto">
+        <img src="assets/images/youkii.png" alt="My Avatar" class="w-full rounded-full shadow-lg" />
+  
   </section>
+  
+<!--Tools & skills sections-->
+<section id="skills" class="py-16 px-6 bg-[#fef8ec] dark:bg-[#2c2621]">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-brown-800 dark:text-[#e8dccf]">
+    Skills
+  </h2>
 
-
-    <!-- ABOUT -->
-    <!-- <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
-        <div class="container">
-            <div class="row">
-                <div> -->
-                <!--<div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">-->
-                    <!-- <div class="about-text" style = "padding-left: 15px;">
-                        <h1 class="animated animated-text">
-                            <span class="mr-2">Hi, I'm</span>
-                                <div class="animated-info">
-                                    <span class="animated-item">Salma</span>
-                                    <span class="animated-item">VR developer</span>
-                                    <span class="animated-item">Unity developer</span>
-                                </div>
-                        </h1>
-
-                        <br>
-                        <p>A curious girl who is also a VR developer. After hustling in many different fields including: embedded systems, electronics and Logic design, AI, web development, kotlin android development, and learning to code in different languages(C++, python and assembly). I finally found my passion in VR and game development</p>
-                        <p>I Started to learn VR development in 2022 using Unity Engine to develop on Oculus Quest 2. I have worked with many of the Quest2 and Quest3 features from simple VR apps to MR features and hand tracking.</p>
-                        <p>Here is my portfolio showing What I have learnt so far.</p>
-                        
-                        <div class="custom-btn-group mt-4">
-                          <a href="#" class="btn mr-lg-2 custom-btn"><i class='uil uil-file-alt'></i> Download Resume</a>
-                          <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Get a free quote</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-5 col-md-12 col-12">
-                    <div class="about-image svg">
-                        <img src="./assets/images/avatar/3-removebg-preview.png" class="img-fluid" alt="svg image">
-                    </div>
-                </div>
-
+  <div class="max-w-5xl mx-auto space-y-10">
+      <!-- Sub-Category: Programming -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4 text-brown-700 dark:text-[#e8dccf]">Programming</h3>
+        <div class="flex flex-wrap gap-4">
+          <!-- Skill slot -->
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/programming/chsarp.png" alt="C#" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              C#
             </div>
-        </div>
-    </section> -->
-    
-        <!-- testimonials -->
-        <!--
-<div class="container">
-        <section class="testimonials otherwebsiteelement">
+          </div>
 
-          <h3 class="h3 testimonials-title">Testimonials</h3>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/programming/c++.png" alt="C++" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              C++
+            </div>
+          </div>
 
-          <ul class="testimonials-list has-scrollbar">
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/programming/C.png" alt="C" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              C
+            </div>
+          </div>
 
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/programming/assembly.png" alt="assembly" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              assembly
+            </div>
+          </div>
 
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/programming/java.png" alt="java" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              java
+            </div>
+          </div>
 
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/programming/python.png" alt="python" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              python
+            </div>
+          </div>
 
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/programming/js.png" alt="JS" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              JS
+            </div>
+          </div>
+        </div> 
+      </div> 
 
-              </div>
-            </li>
+      <!-- Sub-Category: XR -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4 text-brown-700 dark:text-[#e8dccf]">XR</h3>
+        <div class="flex flex-wrap gap-4">
+          <!-- Skill slot -->
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/xr/xrtk.png" alt="XRTK" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              XRTK
+            </div>
+          </div>
 
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/xr/meta.png" alt="Meta SDK (Oculus Integration)" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              Meta SDK (Oculus Integration)
+            </div>
+          </div>
 
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/xr/vrif.png" alt="VRIF" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              VRIF
+            </div>
+          </div>
 
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/xr/hurricane.png" alt="hurricane" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              hurricane
+            </div>
+          </div>
 
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/xr/autohand.png" alt="autohand" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              autohand
+            </div>
+          </div>
 
-              </div>
-            </li>
+        </div> 
+      </div> 
 
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
+      <!-- Sub-Category: Engines & Frameworks -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4 text-brown-700 dark:text-[#e8dccf]">Engines & Frameworks</h3>
+        <div class="flex flex-wrap gap-4">
+          <!-- Skill slot -->
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/Engines/unity.png" alt="Unity" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              Unity
+            </div>
+          </div>
 
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/Engines//unreal.png" alt="Unreal" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              Unreal
+            </div>
+          </div>
 
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/Engines/wonderland.webp" alt="wonderland" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              Wonderland
+            </div>
+          </div>
 
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/Engines/threejs.png" alt="three.js" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              Three.js
+            </div>
+          </div>
 
-              </div>
-            </li>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/Engines/Aframe.png" alt="A-frame" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              A-Frame
+            </div>
+          </div>
 
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
+        </div> 
+      </div> 
 
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
+       <!-- Sub-Category: Hardware -->
+       <div>
+        <h3 class="text-xl font-semibold mb-4 text-brown-700 dark:text-[#e8dccf]">Hardware</h3>
+        <div class="flex flex-wrap gap-4">
+          <!-- Skill slot -->
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/hardware/arduino.png" alt="Arduino" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              Arduino
+            </div>
+          </div>
 
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/hardware/proteus.png" alt="proteus" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              proteus
+            </div>
+          </div>
 
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/hardware/avr.png" alt="AVR" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              AVR
+            </div>
+          </div>
 
-              </div>
-            </li>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/hardware/quartus.png" alt="Quartus" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              Quartus
+            </div>
+          </div>
 
-          </ul>
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/hardware/labview.png" alt="Labview" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              Labview
+            </div>
+          </div>
 
-        </section>
+        </div> 
+      </div>
+      
+       <!-- Sub-Category: Other -->
+       <div>
+        <h3 class="text-xl font-semibold mb-4 text-brown-700 dark:text-[#e8dccf]">Others</h3>
+        <div class="flex flex-wrap gap-4">
+          <!-- Skill slot -->
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/other/blender.webp" alt="Blender" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              Blender
+            </div>
+          </div>
+
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/other/photoshop.webp" alt="Photoshop" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              Photoshop
+            </div>
+          </div>
+
+          <div class="skill-slot relative group">
+            <img src="assets/images/skills/other/illustrator.webp" alt="Illustrator" class="h-10 object-contain" />
+            <!-- Tooltip -->
+            <div class="tooltip-skill group-hover:opacity-100 group-hover:translate-y-1">
+              Illustrator
+            </div>
+          </div>
+
+        </div> 
+      </div> 
+
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="mt-[-40px] pb-16 px-6 bg-[#fef8ec] dark:bg-[#2c2621]">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 text-brown-800 dark:text-[#e8dccf]">
+    What I Do ✨
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+     <!-- XR Apps - Tooltip -->
+    <div class="relative group service-card">
+      <img src="assets/images/icons/xr.png" alt="XR" class="w-12 h-12 mb-2" />
+      <span class="service-label">XR Apps</span>
+
+      <!-- Tooltip -->
+      <div class="tooltip group-hover:opacity-100">
+        I build immersive XR experiences that transport users to new realities — whether for learning, gaming, or pure wonder
       </div>
     </div>
 
-     -->
-        <!--
-          - testimonials modal
-        -->
-<!-- 
-        <div class="modal-container" data-modal-container>
+    <!-- Service: WebXR -->
+    <div class="relative group service-card">
+      <img src="assets/images/icons/web-xr.png" alt="WebXR" class="w-12 h-12 mb-2" />
+      <span class="service-label">WebXR</span>
+      <!-- Tooltip -->
+      <div class="tooltip group-hover:opacity-100">
+        	No downloads needed! I create XR experiences that run right in your browser – fast, sleek, and headset-ready
+      </div>
+    </div>
 
-          <div class="overlay" data-overlay></div>
+    <!-- Service: Games -->
+    <div class="relative group service-card">
+      <img src="assets/images/icons/games.png" alt="Games" class="w-12 h-12 mb-2" />
+      <span class="service-label">Games</span>
+      <!-- Tooltip -->
+      <div class="tooltip group-hover:opacity-100">
+        From cozy puzzles to intense VR challenges, I design and develop games that are fun, polished, and replayable.
+      </div>
+    </div>
 
-          <section class="testimonials-modal">
+     <!-- Service: Tools & Systems -->
+    <div id="tools" class="relative group service-card">
+      <img src="assets/images/icons/tools.png" alt="Tools & Systems" class="w-12 h-12 mb-2" />
+      <span class="service-label">Tools & Systems</span>
+      <!-- Tooltip -->
+      <div class="tooltip group-hover:opacity-100">
+        I craft custom tools and backend systems to make development easier, workflows smoother, and teams happier.
+      </div>
+    </div>
 
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
+    <!-- Service: Custom XR Interactions -->
+    <div class="relative group service-card">
+      <img src="assets/images/icons/custom-xr-interactions.png" alt="Custom XR Interactions" class="w-12 h-12 mb-2" />
+      <span class="service-label">Custom XR Interactions</span>
+      <!-- Tooltip -->
+      <div class="tooltip group-hover:opacity-100">
+        Need a gesture to cast a spell? Or a realistic grab? I design intuitive interactions that feel natural and magical.
+      </div>
+    </div>
 
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
+    <!-- Service: Unity Apps -->
+    <div class="relative group service-card">
+      <img src="assets/images/icons/unity.png" alt="Unity Apps" class="w-12 h-12 mb-2" />
+      <span class="service-label">Unity Apps</span>
+      <!-- Tooltip -->
+      <div class="tooltip group-hover:opacity-100">
+        I use Unity to build high-performance apps for desktop, mobile, and standalone headsets – tailored to your needs.
+      </div>
+    </div>
 
-            </div>
+  </div>
+</section>
 
-            <div class="modal-content">
+<!-- Open Source Tools -->
+<section class="pt-10 pb-4 px-6 bg-[#fef8ec] dark:bg-[#2c2621]">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-brown-800 dark:text-[#e8dccf]">
+    My Open Source Tools
+  </h2>
 
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+  <div class="flex flex-wrap justify-center gap-4 max-w-6xl mx-auto">
+    
+    <!-- Tool Card -->
+    <a href="https://github.com/yourusername/yourtool" target="_blank" class="tool-card relative">
+      <span>Asset Bundle Builder</span>
+    </a>
 
-              <time datetime="2021-06-14">14 June, 2021</time>
+    <!-- Another Tool -->
+    <a href="https://github.com/yourusername/another-tool" target="_blank" class="tool-card relative">
+      <span>VR Scene Loader</span>
+    </a>
 
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
+    <!-- Add more tools here -->
 
-            </div>
-
-          </section>
-
-        </div> -->
-      
-          <!-- PROJECTS -->
-
-
-    <section class="project py-5" id="project">
-        <div class="container">
-        
-            <header>
-              <h2 class="h2 article-title">Portfolio</h2>
-            </header>
-            <section class="projects">
-    
-              <ul class="filter-list">
-    
-                <li class="filter-item">
-                  <button class="active" data-filter-btn>All</button>
-                </li>
-    
-                <li class="filter-item">
-                  <button data-filter-btn>XR</button>
-                </li>
-    
-    
-                
-                <li class="filter-item">
-                  <button data-filter-btn>Work</button>
-                </li>
-                <li class="filter-item">
-                  <button data-filter-btn>Unity</button>
-                </li>
-                <li class="filter-item">
-                  <button data-filter-btn>Personal</button>
-                </li>
-                <li class="filter-item">
-                  <button data-filter-btn>Hardware</button>
-                </li>
-
-<!-- 
-                <li class = "filter-item">
-                  <button data-filter-btn>tools & assets</button>
-                </li>
-                -->
-    
-              </ul>
-    
-              <div class="filter-select-box">
-    
-                <button class="filter-select" data-select>
-    
-                  <div class="select-value" data-selecct-value>Select category</div>
-    
-                  <div class="select-icon">
-                    <ion-icon name="chevron-down"></ion-icon>
-                  </div>
-    
-                </button>
-    
-                <ul class="select-list">
-    
-                  <li class="select-item">
-                    <button data-select-item>All</button>
-                  </li>
-    
-                  <li class="select-item">
-                    <button data-select-item>XR</button>
-                  </li>
-    
-                  <li class="select-item">
-                    <button data-select-item>Work</button>
-                  </li>
-                  <li class="select-item">
-                    <button data-select-item>Unity</button>
-                  </li>
-    
-                  <li class="select-item">
-                    <button data-select-item>Personal</button>
-                  </li>
-                  <li class="select-item">
-                    <button data-select-item>Hardware</button>
-                  </li>
-    
-                  <!-- <li class="select-item">
-                    <button data-select-item>tools & assets</button>
-                  </li>                
-            -->
-                </ul>
-    
-              </div>
-    
-              <ul class="project-list">
-              <!--River People-->
-                <li class="project-item  active" data-filter-item data-category="Work, Unity, XR">
-                  <a href="RiverPeople.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/RiverPeople/thumbnail.png"   alt="River people" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>River People</b></h3>
-    
-                    <p class="project-category">XR, Work, Unity</p>
-                  </a>
-                </li>
-
-                <!--dahab 3d scan-->
-                <li class="project-item  active" data-filter-item data-category="Unity">
-                  <a href="Dahab3dScan.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/dahaab3dScan.png"   alt="Dahab 3d Scan" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>Dahab 3d scan</b></h3>
-    
-                    <p class="project-category">Unity</p>
-                  </a>
-                </li>
-
-                <!--beat saber modes-->
-                <li class="project-item  active" data-filter-item data-category="Work, XR">
-                  <a href="CustomBeatSaberMode.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/CustomBeatSaberMode.png"   alt="Beat Saber Custom Mode" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>Beat Saber Modding</b></h3>
-    
-                    <p class="project-category">Work, XR</p>
-                  </a>
-                </li>
-
-                <!--autism project-->
-                <li class="project-item  active" data-filter-item data-category="Unity, XR, Work">
-                  <a href="VRAutismHygiene.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/VRAutism.png"   alt="VR Autism Hygiene" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>VR Autism Hygiene</b></h3>
-    
-                    <p class="project-category">Unity, XR, Work</p>
-                  </a>
-                </li>
-
-                <!--circles-->
-                <li class="project-item  active" data-filter-item data-category="XR, Work, Unity">
-                  <a href="Circles.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/circles_favIcon.PNG" style = "width: 385px; height:auto" alt = "Circles" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>Circles</b></h3>
-    
-                    <p class="project-category">XR, Unity, Work</p>
-    
-                  </a>
-                </li>
-
-                <!--Relax VR-->
-                <li class="project-item  active" data-filter-item data-category="Work, Unity">
-                  <a href="RelaxVR.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/PolarH10Demo.png"   alt="Relax VR PolarH10" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>Relax VR</b></h3>
-    
-                    <p class="project-category">Unity, Work</p>
-                  </a>
-                </li>
-
-                <!--Electronics Simulator-->
-                <li class="project-item  active" data-filter-item data-category="XR, Personal, Unity">
-                  <a href="ElectronicsSimulator.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/electronicsSimulatorImage.PNG"   alt="Electronics Simulator" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>Electronics Simulator</b></h3>
-    
-                    <p class="project-category">XR, Untiy, Personal</p>
-    
-                  </a>
-                </li>
-
-                <!--AI Avatar-->
-                <li class="project-item  active" data-filter-item data-category="Unity">
-                  <a href="AiAvatar.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/AiAvatar_thumbnail.png"   alt="AI Avatar" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>AI Avatar</b></h3>
-    
-                    <p class="project-category">Unity</p>
-                  </a>
-                </li>
-
-                <!--beat saber-->
-                <li class="project-item  active" data-filter-item data-category="XR, Personal, Unity">
-                  <a href="beatSaberClone.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/beatSaberCloneImage.PNG"  alt="Beat Saber Clone" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>Beat Saber</b></h3>
-    
-                    <p class="project-category">XR, Unity, Personal</p>
-    
-                  </a>
-                </li>
-    
-                <!--hypercasual games-->
-                <li class="project-item  active" data-filter-item data-category="Work, Unity">
-                  <a href="hypercasualGames.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/hypercasualGames.png" style = "width: 350px; height:auto"  alt="Hypercasual Games" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>Hypercasual Games</b></h3>
-    
-                    <p class="project-category">Unity, Work</p>
-                  </a>
-                </li>
-
-                <!--quran model-->
-                <li class="project-item  active" data-filter-item data-category="Personal">
-                  <a href="QuranModel.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/QM/QM_final_Product.png"   alt="Quran Model" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>Quran Model</b></h3>
-    
-                    <p class="project-category">Personal</p>
-                  </a>
-                </li>
+  </div>
+</section>
 
 
-                <!--kitchen chaos-->
-                <li class="project-item  active" data-filter-item data-category="XR, Personal, Unity">
-                  <a href="kitchenChaosVR.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/KitchenChaosLogo.png"  style ="width: 350; height: auto;" alt="Kitchen Chaos VR" loading="lazy">
-                      <br><br><br>
-                    </figure>
-    
-                    <h3 class="project-title"><b>Kitchen Chaos VR</b></h3>
-    
-                    <p class="project-category">XR, Unity, Personal</p>
-    
-                  </a>
-                </li>
+<!-- projects catalog-->
+<section id="portfolio" class="py-16 px-6 bg-[#fef8ec] dark:bg-[#2c2621]">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-brown-800 dark:text-[#e8dccf]">My Projects</h2>
 
-                <!--C ping pong-->
-                <li class="project-item  active" data-filter-item data-category="Personal">
-                  <a href="CPingPong.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/ping_pong_c.png" style = "width: 400; height: auto;" alt="C Ping Pong" loading="lazy">
-                      <br><br><br>
-                    </figure>
-    
-                    <h3 class="project-title"><b>C Ping Pong</b></h3>
-    
-                    <p class="project-category">Personal</p>
-    
-                  </a>
-                </li>
+  <!-- Category Filters -->
+  <div class="flex flex-wrap justify-center gap-4 mb-10">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="xr">XR</button>
+    <button class="filter-btn" data-category="unity">Unity</button>
+    <button class="filter-btn" data-category="hardware">Hardware</button>
+  </div>
 
-                <!--Robot hand-->
+ <!-- Project Gallery -->
+<div id="project-gallery" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+  <!-- Example Project Card -->
+  <div class="project-card" data-category="xr unity">
+    <a href="PDP/River-People.html">
+    <img class="project-thumb object-center"  src="assets/images/projects/thumbnails/RiverPeople.png" alt="River Project" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">River People</h3>
+      <p class="project-tags">XR, Unity</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="unity">
+    <a href="PDP/Dahab-3d-Scann.html">
+    <img src="assets/images/projects/thumbnails/dahaab3dScan.png" alt="Dahab 3d Scan" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">Dahab 3D Scan</h3>
+      <p class="project-tags">Unity</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="xr unity">
+    <a href="PDP/Custom-Beat-Saber-Mode.html">
+    <img src="assets/images/projects/thumbnails/CustomBeatSaberMode.png" alt="Custom Beat Saber Mode" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">Custom Beat Saber Mode</h3>
+      <p class="project-tags">XR, Unity</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="xr unity">
+    <a href="PDP/VR-Autism_Hygiene.html">
+    <img src="assets/images/projects/thumbnails/VRAutism.png" alt="VR Autism" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">VR Autism Hygiene</h3>
+      <p class="project-tags">XR, Unity</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="xr unity hardware">
+    <a href="PDP/Relax-VR.html">
+    <img src="assets/images/projects/thumbnails/PolarH10Demo.png" alt="Relax VR" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">Relax VR</h3>
+      <p class="project-tags">XR, Unity, Hardware</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="xr unity">
+    <a href="PDP/Cricles.html">
+    <img src="assets/images/projects/thumbnails/circles_favIcon.PNG" alt="Circles" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">Circles</h3>
+      <p class="project-tags">XR, Unity</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="xr unity">
+    <a href="PDP/Electronics-Simulator.html">
+    <img src="assets/images/projects/thumbnails/electronicsSimulatorImage.PNG" alt="Electronics Simulator" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">Electronics Simulator</h3>
+      <p class="project-tags">XR, Unity</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="unity">
+    <a href="PDP/AI-Avatar.html">
+    <img src="assets/images/projects/thumbnails/AiAvatar_thumbnail.png" alt="AI Avatar" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">AI Avatar</h3>
+      <p class="project-tags">Unity</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="xr unity">
+    <a href="PDP/Beat-Saber-Clone.html">
+    <img src="assets/images/projects/thumbnails/beatSaberCloneImage.PNG" alt="Beat Saber Clone" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">Beat Saber Clone</h3>
+      <p class="project-tags">XR, Unity</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="unity">
+    <a href="PDP/Hypercasual-games.html">
+    <img src="assets/images/projects/thumbnails/hypercasualGames.png" alt="Hyper Casual Games" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">Hypercasual Games</h3>
+      <p class="project-tags">Unity</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="unity">
+    <a href="PDP/Quran-Model.html">
+    <img src="assets/images/projects/thumbnails/QM_final_Product2.png" alt="Quran 3d Model" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">Quran Model</h3>
+      <p class="project-tags">Modelling</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="unity">
+    <a href="PDP/Kitchen-Chaos-VR.html">
+    <img src="assets/images/projects/thumbnails/KitchenChaosLogo.png" alt="Kitchen Chaos" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">Hypercasual Games</h3>
+      <p class="project-tags">XR, Unity</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="">
+    <a href="PDP/CPingPong.html">
+    <img src="assets/images/projects/thumbnails/ping_pong_c.png" alt="c ping pong" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">C Ping Pong</h3>
+      <p class="project-tags">C, no engine game</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="hardware">
+    <a href="PDP/Robot-Hand.html">
+    <img src="assets/images/projects/thumbnails/robotHand.png" alt="robot hand" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">Recycled Robot Hand</h3>
+      <p class="project-tags">Recyling, Hardware</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="">
+    <a href="PDP/360HelwanCollege.html">
+    <img src="assets/images/projects/thumbnails/helwanEngineering.png" alt="360 tour helwan engineering" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">360 tour helwan engineering</h3>
+      <p class="project-tags">360 tour</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="unity">
+    <a href="PDP/4Cards.html">
+    <img src="assets/images/projects/thumbnails/4cards.png" alt="4 cards" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">4 cards</h3>
+      <p class="project-tags">unity</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="">
+    <a href="PDP/ARCADE.html">
+    <img src="assets/images/projects/thumbnails/ARCADE.png" alt="arcade" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">ARCADE</h3>
+      <p class="project-tags">C++, console</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="">
+    <a href="PDP/JavaNoteApp.html">
+    <img src="assets/images/projects/thumbnails/JavaNoteApp.png" alt="java Note App" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">Java Note App</h3>
+      <p class="project-tags">Java</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="hardware">
+    <a href="PDP/HS-AVR-Drivers.html">
+    <img src="assets/images/projects/thumbnails/HS.png" alt="AVR Drivers" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">AVR Drivers</h3>
+      <p class="project-tags">Hardware
+      </p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <div class="project-card" data-category="hardware">
+    <a href="PDP/FPGS-ShiftRegister.html">
+    <img src="assets/images/projects/thumbnails/FPGA.png" alt="FPGA Shift Register" class="project-thumb" />
+  </a>
+    <div class="project-info">
+      <h3 class="project-title">FPGA Shift Register</h3>
+      <p class="project-tags">Hardware</p>
+      <button class="like-btn">♡ <span class="like-count">0</span></button>
+    </div>
+  </div>
+  <!-- More projects... -->
+</div>
+<!-- No projects message -->
+<p id="no-projects" class="hidden text-center text-brown-800 dark:text-[#e8dccf] text-lg mt-6">
+  No projects found for this category.
+</p>
+</section>
 
-                <li class="project-item  active" data-filter-item data-category="Personal, Hardware">
-                  <a href="RobotHand.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/robotHand.png" style = "width: 385px; height:auto"  alt="Robot Hand" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>Recycled Robot Hand</b></h3>
-    
-                    <p class="project-category">Personal, Hardware</p>
-                  </a>
-                </li>
+<!-- Contact Me -->
+<!-- <section id="contact" class="py-16 px-6 bg-[#fef8ec] dark:bg-[#2c2621]">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-brown-800 dark:text-[#e8dccf]">
+    Contact Me
+  </h2>
 
-                <!--360 tour-->
-                <li class="project-item  active" data-filter-item data-category="Personal">
-                  <a href="360HelwanCollege.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/helwanEngineering.png"  alt="Helwan Engineering 360 tour" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>360 tour: Helwan Engineering</b></h3>
-    
-                    <p class="project-category">Personal</p>
-                  </a>
-                </li>
+  <form id="contact-form" class="max-w-xl mx-auto space-y-4">
+    <input type="text" name="name" placeholder="Your Name" required class="contact-input" />
+    <input type="email" name="email" placeholder="Your Email" required class="contact-input" />
+    <textarea name="message" rows="5" placeholder="Your Message" required class="contact-input"></textarea>
 
-                <!--4 cards-->
-                <li class="project-item  active" data-filter-item data-category="Unity, Personal">
-                  <a href="4Cards.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/4cards.png" style = "width: 385px; height:auto" alt="4 cards game" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>4 cards</b></h3>
-    
-                    <p class="project-category">Unity, Personal</p>
-                  </a>
-                </li>
+    <button type="submit" class="contact-btn">Send Message</button>
+    <p id="form-status" class="text-center mt-2 text-green-600 hidden">Message sent!</p>
+  </form>
+</section> -->
 
-                <!--arcade-->
-                <li class="project-item  active" data-filter-item data-category="Personal">
-                  <a href="ARCADE.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/ARCADE.png"  style = "width: 385px; height:auto" alt="ARCADE C++ console game" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>ARCADE</b></h3>
-    
-                    <p class="project-category">Personal</p>
-                  </a>
-                </li>
+ <!-- Footer -->
+ <div class="max-w-4xl mx-auto flex flex-col items-center justify-center gap-2 text-center">
+  <p class="text-sm">© 2025 Youkii — Built with ☕ and Passion</p>
+  <div class="flex items-center gap-4 text-xl">
+    <!-- icons or links -->
+  </div>
+</div>
 
-         <!--java note app-->
-         <li class="project-item  active" data-filter-item data-category="Personal">
-          <a href="JavaNoteApp.html">
 
-            <figure class="project-img" style = "height: 345px; width:auto;">
-              <div class="project-item-icon-box">
-                <ion-icon class = "uil uil-eye"></ion-icon>
-              </div>
-
-              <img src="./assets/images/JavaNoteApp.png"   alt="Java Note App" loading="lazy">
-            </figure>
-
-            <h3 class="project-title"><b>Java Note App</b></h3>
-
-            <p class="project-category">Personal</p>
-          </a>
-        </li>
-                <!--AVR drivers-->
-                <li class="project-item  active" data-filter-item data-category="Personal, Hardware">
-                  <a href="HSAVRDrivers.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/HS.png"  style = "width: 385px; height:auto" alt="AVR drivers" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>AVR drivers</b></h3>
-    
-                    <p class="project-category">Personal, Hardware</p>
-                  </a>
-                </li>
-
-                <!--quartus shift register-->
-              
-                  
-                <li class="project-item  active" data-filter-item data-category="Personal, Hardware">
-                  <a href="FPGA_ShiftRegister.html">
-    
-                    <figure class="project-img" style = "height: 345px; width:auto;">
-                      <div class="project-item-icon-box">
-                        <ion-icon class = "uil uil-eye"></ion-icon>
-                      </div>
-    
-                      <img src="./assets/images/FPGA/thumbnail.png"   alt="FPGA Shift Register" loading="lazy">
-                    </figure>
-    
-                    <h3 class="project-title"><b>FPGA Shift Register</b></h3>
-    
-                    <p class="project-category">Personal, Hardware</p>
-                  </a>
-                </li>
-
-              </ul>
-    
-            </section>
-            </div>
-    </section>
-
-    
-
-    <!-- FEATURES -->
-    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-6 col-12">
-                  <header>
-                    <h2 class="h2 article-title">Resume</h2>
-                  </header>
-          
-                  <div class="custom-btn-group mt-4">
-                    <a href="./assets/files/Salma_Ramdan_CV.pdf" class="btn mr-lg-2 custom-btn" download = "Salma_Ramadan_CV"><i class='uil uil-file-alt'></i> Download CV</a>
-                    <a href="./assets/files/Salma_Ramadan_Resume.pdf" class="btn mr-lg-2 custom-btn" download = "Salma_Ramadan_Resume"><i class='uil uil-file-alt'></i> Download Resume</a>
-                  </div>
-               <br><br>
-                  <section class="timeline">
-          
-                    <div class="title-wrapper">
-                      <div class="icon-box">
-                        <ion-icon name="book-outline"></ion-icon>
-                      </div>
-          
-                      <h3 class="h3"><b>Professional Experience</b></h3>
-                    </div>
-          
-                    <ol class="timeline-list">
-          
-                      <li class="timeline-item">
-          
-                        <h3 class="h3">VR Instructor/mentor</h3>
-          
-                        <span>10/2022 — 3/2024 | Maddi, Egypt</span>
-          
-                        <p class="timeline-text">
-                          <a href="https://www.youtube.com/playlist?list=PLuoPlelWWKSx6atz_Q3yP-afIoqjRiEWq" class="desc">diploma projects</a><br>
-                          <a href="https://www.linkedin.com/company/412labs/?originalSubdomain=uk" class="desc">412 labs</a>
-                        </p>
-                        <p class = "timeline-text">
-                          <br>
-                          • Helped 100+ students with their graduation projects on VR diploma offered from <b>American Center Cairo</b>.
-                          <br>
-                          • Conduct weekly online sessions to explain new concepts in VR.          
-                          <br>
-                          • Develop Virtual Relaity prototypes and demos.
-                          <br>
-                          • Debug technical issues in VR application and VR headsets.
-                        </p>
-                      </li>
-
-                      <li class="timeline-item">
-          
-                        <h3 class="h3">VR/Unity freelancer</h3>
-                    
-                        <p class="timeline-text">
-                          <a href="https://www.upwork.com/freelancers/~015a33ee22a7b74e8e" class="desc">upwork profile</a></p> 
-                        </p>
-                        <p class = "timeline-text">
-                          <br>
-                          • Top Rated with JSS 100%.
-                        </p>
-                      </li>
-          
-                      <li class="timeline-item">
-          
-                        <h3 class="h3">VR Developer</h3>
-          
-                        <span>4/2023 — 7/2023 | Deepscope, Remote</span>
-          
-                        <p class="timeline-text">
-                          <a href="https://www.deepscope.co.uk/" class="desc">Deepscope</a><br>
-                        </p>
-                        <p class = "timeline-text">
-                          • Implemented two new features related to MR.
-                          <br>
-                          • Debug and fix problems in project.          
-                          <br>
-                          • Conduct weekly meetings with 3d artists and Project manager.
-                          <br>
-                          • Upgraded the whole project and removed deprecated packages.
-                        </p>
-                      </li>
-
-                      
-                      <li class="timeline-item">
-          
-                        <h3 class="h3">NLP Developer</h3>
-          
-                        <span>12/2022 — 1/2023 | Safandi, Remote</span>
-          
-                        <p class="timeline-text">
-                          <a href="https://safandi.com/" class="desc">Safandi</a><br>
-                        </p>
-                        <p class = "timeline-text">
-                          • Develop NLP model with python.
-                          <br>
-                          • Deploy model on AWS.          
-                          <br>
-                          • Test model performace.
-                          <br>
-                          • Upgraded the whole project and removed deprecated packages.
-                        </p>
-                      </li>
-
-                      
-                      <li class="timeline-item">
-          
-                        <h3 class="h3">VR Developer</h3>
-          
-                        <span>4/2023 — 7/2023 | Deepscope, Remote</span>
-          
-                        <p class="timeline-text">
-                          <a href="https://www.medrar.org/" class="desc">Medrar</a><br>
-                        </p>
-                        <p class = "timeline-text">
-                          • Help artists turn their ideas into VR experience by providing custom editor tools.
-                          <br>
-                          • Provide technical support for Unity Engine.         
-                          <br>
-                          • Helping with Unity features as Particle systems, animations, shaders.
-                          <br>
-                          • One of the Projects I was mainly working on, won multiple awards and was displayed in the new Museum in Egypt
-                        </p>
-                      </li>
-          
-                    </ol>
-          
-                  </section>
-                </div>
-
-                <div class="col-lg-6 col-12">
-                  <header>
-                    <h2 class="h2 article-title"><br></h2>
-                  </header>
-                  <br><br><br><br>
-
-                  <section class="timeline">
-          
-                    <div class="title-wrapper">
-                      <div class="icon-box">
-                        <ion-icon name="book-outline"></ion-icon>
-                      </div>
-                      <h3 class="h3">Education</h3>
-                    </div>
-          
-                    <ol class="timeline-list">
-          
-                      <li class="timeline-item">
-          
-                        <h4 class="h4 timeline-item-title">Bachelor of Engineering</h4>
-          
-                        <span>Helwan University, Egypt</span>
-          
-                        <p class="timeline-text">
-                          <b>2020 - 2021</b>    • Engineering Foundation Year
-                          <br>
-                          <b>2021 - 2022</b>    • a semester in Biomedical Engineering, then switched majors
-                          <br>
-                          <b>2021 - 2023</b>    • year and half in Electronics and Communication Engineering, then switched majors
-                          <br>
-                          <b>2023 - 2027</b>    • studying 4 years Bachelor in Computer Systems in Engineering
-                        </p>
-          
-                      </li>
-
-                      
-                      <li class="timeline-item">
-          
-                        <h4 class="h4 timeline-item-title">VR development diploma</h4>
-          
-                        <span>7/2022 - 9/2022 | ACC U.S. embassy and 412 labs</span>
-          
-          
-                      </li>
-          
-          
-                     
-          
-                    </ol>
-          
-                  </section>
-        </div>
-    </section>
-
-           
-
-    <!-- FOOTER -->
-
-     <!-- <footer>
-
-      
-      <div class="footer-content">     
-        <ul class="socials">
-          <li><a href="#" class="uil uil-youtube" data-toggle="tooltip" data-placement="left" title="Dribbble"></a></li>
-                  <li><a href="#" class="uil uil-instagram" data-toggle="tooltip" data-placement="left" title="Instagram"></a></li>
-                  <li><a href="#" class="uil uil-youtube" data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
-             </ul>
-               </div>
-     </footer> -->
-
-     <script src="./assets/js/jquery-3.3.1.min.js"></script>
-    <script src="./assets/js/popper.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <script src="./assets/js/Headroom.js"></script>
-    <script src="./assets/js/jQuery.headroom.js"></script>
-    <script src="./assets/js/owl.carousel.min.js"></script>
-    <script src="./assets/js/smoothscroll.js"></script>
-    <script src="./assets/js/custom.js"></script>
-    <script src="./assets/js/script.js"></script>
-
-  </body>
+  <!-- JS -->
+  <script src="assets/js/script.js"></script>
+</body>
 </html>

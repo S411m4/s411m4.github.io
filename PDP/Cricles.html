@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+  // Early theme application before page render to prevent flicker
+  (function () {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  })();
+</script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Circles">
+  <meta name="author" content="Youkii">
+  <title>Circles</title>
+
+  <link rel="icon" type="image/x-icon" href="../assets/images/projects/thumbnails/circles_favIcon.PNG">
+
+  <!-- Tailwind CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="bg-[#fef8ec] dark:bg-[#2c2621] text-brown-800 dark:text-[#e8dccf]">
+  <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-[#fdf6ec] dark:bg-[#2a1f1a] transition-opacity duration-500">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <div class="loader-icon">
+        🐾 <!-- or ✦ or 🔆 or 🌀 -->
+      </div>
+    </div>
+  </div>
+  <!-- Navbar Include -->
+  <header class="sticky top-0 z-50 bg-[#fef8ec] dark:bg-[#2c2621] shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="../index.html#about" class="text-2xl font-bold">Youkii</a>
+      <div class="hidden md:flex items-center gap-6 font-medium">
+        <nav class="flex space-x-6">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="../contact.html" class ="nav-link">Contact</a>
+        </nav>
+<button id="toggleTheme" class="theme-toggle p-2 rounded-full ml-2">🌓</button>
+      </div>
+      <div class="md:hidden flex items-center gap-3">
+        <button id="nav-toggle" class="focus:outline-none">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+<button id="toggleThemeMobile" class="theme-toggle p-2 rounded-full order-2">🌓</button>      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden flex flex-col items-start space-y-3 pb-6 px-6 font-medium">
+      <a href="../index.html" class="nav-link">Home</a>
+          <a href="../contact.html" class ="nav-link">Contact</a>
+    </div>
+  </header>
+
+  <section class="px-6 py-12 max-w-5xl mx-auto">
+    <!-- Title -->
+    <h1 class="text-4xl md:text-5xl font-bold text-center mb-8">Circles</h1>
+  
+    <!-- Video -->
+    <div class="w-full rounded-lg overflow-hidden shadow-lg mb-6" style="height: 350px;">
+      <iframe src="https://www.youtube.com/embed/Tvw3GRyboRg" title="Project Video" allowfullscreen class="w-full h-full"></iframe>
+    </div>
+  
+    <!-- Tags -->
+    <div class="mb-6 flex flex-wrap gap-2 justify-center">
+      <span class="tag-label">Unity</span>
+      <span class="tag-label">XR</span>
+      <span class="tag-label">Story Telling</span>
+    </div>
+  
+  
+    <!-- Timeline Sections -->
+    <div class="space-y-16">
+  
+  
+      <!-- About -->
+      <div class="timeline-section">
+        <div class="timeline-line">
+          <div class="timeline-pad"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="text-2xl font-semibold mb-4">Fantomas VR artworks exhibtion</h2>
+          <ul class="space-y-3 list-none">
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span> Fantomas is a VR exhibtion hosted by <a href="https://www.medrar.org/" class="dotted-link">Medrar</a> in collaboration with <a href = "https://www.412labs.com" class ="dotted-link">412 labs</a> where a group of artists were selected to turn their ideas into VR experiences</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-section">
+        <div class="timeline-line">
+          <div class="timeline-pad"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="text-2xl font-semibold mb-4">Artist Statement</h2>
+          <ul class="space-y-3 list-none">
+            <li class="flex items-start gap-3">
+              <span><em>"The project questions the VR technology: Is it a technology devoid of sentiments? Can we deliver spiritual messages through it? People might disagree, even argue, about the questions aforementioned, however, we can all agree on the fact that technology is to take over the future. What is to become of us shall we not be able to express our genuine selves in this foreseen future? Will that technology-run world render us emotionless?"</em></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-section">
+        <div class="timeline-line">
+          <div class="timeline-pad"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="text-2xl font-semibold mb-4">Awards</h2>
+          <ul class="space-y-3 list-none">
+            <li class="flex items-start gap-3">
+              <span>"Circles" was selected to participate in Fourth edition of <a href="https://artcairo.com/" class="desc">Art Cairo</a> at the <a href="https://grandegyptianmuseum.org/" class="dotted-link"></a>Grand Egyptian Museum</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    
+
+      <!-- My Contributions -->
+      <div class="timeline-section">
+        <div class="timeline-line">
+          <div class="timeline-pad"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="text-2xl font-semibold mb-4">My Contributions</h2>
+          <ul class="space-y-3 list-none">
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>Helped the artist make her 3D models come to live by providing scripts that help her combine different actions and events easily from the inspector without needing to code it herself</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>Provided technical support in dealing with <b><em>Unity</em></b> engine, while making the experience</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>Helped in: animations, blender modelling, textures and uv mapping, unity lightining</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+<!-- Behind the scenes -->
+<div class="timeline-section">
+  <div class="timeline-line">
+    <div class="timeline-pad"></div>
+  </div>
+
+
+  <div class="timeline-content">
+    <h2 class="text-2xl font-semibold mb-4">Behind the Scenes</h2>
+      <li class="flex items-start gap-3">
+        <div class="timeline-dot"></div>
+        <span>Post:<a href="https://www.facebook.com/photo/?fbid=5617946964962363&set=gm.666074635045210&idorvanity=665528271766513" class="dotted-link"> Project Post</a></span>
+      </li>
+      
+      <li class="flex items-start gap-3">
+        <div class="timeline-dot"></div>
+        <span>Video:<a href="https://www.facebook.com/reel/1068703923824691" class="dotted-link"> Working with the art team</a></span>
+      </li>
+
+      <li class="flex items-start gap-3">
+        <div class="timeline-dot"></div>
+        <span>Post:<a href="https://www.facebook.com/photo?fbid=782059916818393&set=a.738150037876048" class="dotted-link">Project participating in "Gabes Cinema Fen"</a></span>
+      </li>
+
+      <li class="flex items-start gap-3">
+        <div class="timeline-dot"></div>
+        <span>Video:<a href="https://www.facebook.com/medrar.org/videos/1796304990729674" class="dotted-link"> Exhibition day</a></span>
+      </li>
+
+    <div class="mb-4">
+      <!-- Video -->
+      <div class="w-full max-w-xl rounded-lg overflow-hidden shadow-lg ml-7">
+        <iframe
+          class="w-full h-64"
+          src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fmedrar.org%2Fvideos%2F690858985701485%2F&show_text=false&width=560&t=0" width="100%" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </section>
+  
+
+  <!-- Footer Include -->
+ <div class="max-w-4xl mx-auto flex flex-col items-center justify-center gap-2 text-center">
+  <p class="text-sm">© 2025 Youkii — Built with ☕ and Passion</p>
+  <div class="flex items-center gap-4 text-xl">
+    <!-- icons or links -->
+  </div>
+</div>
+
+  <!-- JS -->
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+    // Early theme application before page render to prevent flicker
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kitchen Chaos VR">
+  <meta name="author" content="Youkii">
+  <title>Kitchen Chaos VR</title>
+  <link rel="icon" type="image/x-icon" href="../assets/images/projects/thumbnails/KitchenChaosLogo.png">
+
+
+  <!-- Tailwind CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="bg-[#fef8ec] dark:bg-[#2c2621] text-brown-800 dark:text-[#e8dccf]">
+  <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-[#fdf6ec] dark:bg-[#2a1f1a] transition-opacity duration-500">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <div class="loader-icon">
+        🐾 <!-- or ✦ or 🔆 or 🌀 -->
+      </div>
+    </div>
+  </div>
+  <!-- Navbar Include -->
+  <header class="sticky top-0 z-50 bg-[#fef8ec] dark:bg-[#2c2621] shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="../index.html#about" class="text-2xl font-bold">Youkii</a>
+      <div class="hidden md:flex items-center gap-6 font-medium">
+        <nav class="flex space-x-6">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="../contact.html" class ="nav-link">Contact</a>
+        </nav>
+<button id="toggleTheme" class="theme-toggle p-2 rounded-full ml-2">🌓</button>
+      </div>
+      <div class="md:hidden flex items-center gap-3">
+        <button id="nav-toggle" class="focus:outline-none">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+<button id="toggleThemeMobile" class="theme-toggle p-2 rounded-full order-2">🌓</button>      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden flex flex-col items-start space-y-3 pb-6 px-6 font-medium">
+      <a href="../index.html" class="nav-link">Home</a>
+          <a href="../contact.html" class ="nav-link">Contact</a>
+'    </div>
+  </header>
+
+  <section class="px-6 py-12 max-w-5xl mx-auto">
+    <!-- Title -->
+    <h1 class="text-4xl md:text-5xl font-bold text-center mb-8">Kitchen Chaos VR</h1>
+  
+    <!-- Videos -->
+    <div class="space-y-10">
+      <!-- Optional Second Video Section -->
+      <div>
+        <div class="w-full rounded-lg overflow-hidden shadow-lg mb-6" style="height: 350px;">
+          <iframe src="https://www.youtube.com/embed/HsCXjMpgBJo" title="Playing Against AI"
+            allowfullscreen class="w-full h-full"></iframe>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Tags -->
+    <div class="mt-12 mb-6 flex flex-wrap gap-2 justify-center">
+      <span class="tag-label">Unity</span>
+      <span class="tag-label">XR</span>
+      <span class="tag-label">Game</span>
+    </div>
+
+  
+    <!-- Timeline Sections -->
+    <div class="space-y-16">
+
+      <!--About -->
+      <div class="timeline-section">
+        <div class="timeline-line">
+          <div class="timeline-pad"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="text-2xl font-semibold mb-4">About</h2>
+          <ul class="space-y-3 list-none">
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>I learnt to make the game while watching <a class = "dotted-link" href="https://www.youtube.com/watch?v=AmGSEH7QcDg">CodeMonkey 10 hour Unity tutorial</a> which was originally a PC game, then I converted it into a VR game</span>
+            </li>
+           
+          </ul>
+        </div>
+      </div>
+
+        <!-- Learnt -->
+        <div class="timeline-section">
+        <div class="timeline-line">
+          <div class="timeline-pad"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="text-2xl font-semibold mb-4">What I Learned</h2>
+          <ul class="space-y-3 list-none">
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>Learnt about C# events, interfaces, delegates, Scriptable objects and C# OOP</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>Learnt about <b>game design patterns</b></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>Learnt about <b>XR new input system</b> and how to define your own custom actions</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>Learnt to make good, scalable UI</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>Cinemachine</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+</div>
+
+  </section>
+  
+
+  <!-- Footer Include -->
+ <div class="max-w-4xl mx-auto flex flex-col items-center justify-center gap-2 text-center">
+  <p class="text-sm">© 2025 Youkii — Built with ☕ and Passion</p>
+  <div class="flex items-center gap-4 text-xl">
+    <!-- icons or links -->
+  </div>
+</div>
+
+  <!-- JS -->
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

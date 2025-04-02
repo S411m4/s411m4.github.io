@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+    // Early theme application before page render to prevent flicker
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Electronics Simulator">
+  <meta name="author" content="Youkii">
+  <title>Electronics Simulator</title>
+
+  <link rel="icon" type="image/x-icon" href="../assets/images/projects/thumbnails/electronicsSimulatorImage.PNG">
+
+  <!-- Tailwind CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="bg-[#fef8ec] dark:bg-[#2c2621] text-brown-800 dark:text-[#e8dccf]">
+  <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-[#fdf6ec] dark:bg-[#2a1f1a] transition-opacity duration-500">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <div class="loader-icon">
+        🐾 <!-- or ✦ or 🔆 or 🌀 -->
+      </div>
+    </div>
+  </div>
+  <!-- Navbar Include -->
+  <header class="sticky top-0 z-50 bg-[#fef8ec] dark:bg-[#2c2621] shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="../index.html#about" class="text-2xl font-bold">Youkii</a>
+      <div class="hidden md:flex items-center gap-6 font-medium">
+        <nav class="flex space-x-6">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="../contact.html" class ="nav-link">Contact</a>
+        </nav>
+<button id="toggleTheme" class="theme-toggle p-2 rounded-full ml-2">🌓</button>
+      </div>
+      <div class="md:hidden flex items-center gap-3">
+        <button id="nav-toggle" class="focus:outline-none">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+<button id="toggleThemeMobile" class="theme-toggle p-2 rounded-full order-2">🌓</button>      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden flex flex-col items-start space-y-3 pb-6 px-6 font-medium">
+      <a href="../index.html" class="nav-link">Home</a>
+          <a href="../contact.html" class ="nav-link">Contact</a>
+    </div>
+  </header>
+
+  <section class="px-6 py-12 max-w-5xl mx-auto">
+    <!-- Title -->
+    <h1 class="text-4xl md:text-5xl font-bold text-center mb-8">Electronics Simulator</h1>
+  
+    <!-- Video -->
+    <div class="w-full rounded-lg overflow-hidden shadow-lg mb-6" style="height: 350px;">
+      <iframe src="https://www.youtube.com/embed/w8GI-iiDGPU" title="Project Video" allowfullscreen class="w-full h-full"></iframe>
+    </div>
+  
+    <!-- Tags -->
+    <div class="mb-6 flex flex-wrap gap-2 justify-center">
+      <span class="tag-label">Unity</span>
+      <span class="tag-label">XR</span>
+      <span class="tag-label">Simulator</span>
+    </div>
+  
+  
+    <!-- Timeline Sections -->
+    <div class="space-y-16">
+  
+  
+      <!-- About -->
+      <div class="timeline-section">
+        <div class="timeline-line">
+          <div class="timeline-pad"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="text-2xl font-semibold mb-4">About</h2>
+          <ul class="space-y-3 list-none">
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>a real-time electronics simulator in VR. The game mechanics, UI and interactions were designed by me</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Workflow -->
+      <div class="timeline-section">
+        <div class="timeline-line">
+          <div class="timeline-pad"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="text-2xl font-semibold mb-4">Learnt</h2>
+          <ul class="space-y-3 list-none">
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>XR Interaction Toolkit for VR</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>designed the logic for game mechanisms from scratch</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span>advanced C#</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="timeline-dot"></div>
+              <span> writing clean and maintable code</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+<!-- Versions -->
+<div class="timeline-section">
+  <div class="timeline-line">
+    <div class="timeline-pad"></div>
+  </div>
+
+  <div class="timeline-content">
+    <h2 class="text-2xl font-semibold mb-4">Thought Process</h2>
+
+    <!-- Project Entry -->
+    <div class="mb-4">
+      <!-- Subheading + Dot Row -->
+      <div class="flex items-center gap-3 mb-1">
+        <div class="timeline-dot"></div>
+        <h3 class="text-lg font-semibold">Connection Checking</h3>
+      </div>
+
+      <!-- Description -->
+      <p class="text-md mb-4 ml-7">Connection Checking works for any combination of circuit components where it dynamically checks at every node of the circuit to see : 1. if the circuit is connected or not, 2. if the components are connected in correct polarity, 3. if there is a burnt component connected</p>
+      <p class="text-md mb-4 ml-7">Here is an example of checking connection for a circuit of: Led, Resistor and battery</p>
+      <img src="../assets/images/projects/electronics-simulator/checkConnectionsAlgorithm1.jpeg" style="border-radius:0%;max-width:300px;height:auto;margin-right: 10px;">
+      <img src="../assets/images/projects/electronics-simulator/checkConnectionsAlgorithm2.jpeg" style="border-radius:0%;max-width:300px;height:auto;margin-right: 10px;">
+      </div>
+
+    <div class="mb-4">
+      <!-- Subheading + Dot Row -->
+      <div class="flex items-center gap-3 mb-1">
+        <div class="timeline-dot"></div>
+        <h3 class="text-lg font-semibold">Videos showcasing Checking Connections for different cases:</h3>
+      </div>
+
+      <!-- Description -->
+      <p class="text-md mb-4 ml-7">● Battery, resistor circuit:</p>
+
+      <!-- Video -->
+      <div class="w-full max-w-xl rounded-lg overflow-hidden shadow-lg ml-7">
+        <iframe
+          class="w-full h-64"
+          src="https://www.youtube.com/embed/JZcZ4m1SmG4"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+     
+      <p class="text-md mb-4 ml-7">● Battery, resistor, Led circuit connected in <b>right</b> polarity:</p>
+
+      <!-- Video -->
+      <div class="w-full max-w-xl rounded-lg overflow-hidden shadow-lg ml-7">
+        <iframe
+          class="w-full h-64"
+          src="https://www.youtube.com/embed/iwIPld-AAc4"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <p class="text-md mb-4 ml-7">● Battery, resistor, Led circuit connected with <b>wrong</b> polarity: </p>
+
+      <!-- Video -->
+      <div class="w-full max-w-xl rounded-lg overflow-hidden shadow-lg ml-7">
+        <iframe
+          class="w-full h-64"
+          src="https://www.youtube.com/embed/Fb2E2ZU0eK8"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="mb-4">
+        <!-- Subheading + Dot Row -->
+        <div class="flex items-center gap-3 mb-1">
+          <div class="timeline-dot"></div>
+          <h3 class="text-lg font-semibold">Resistor UI</h3>
+        </div>
+  
+        <!-- Description -->
+        <p class="text-md mb-4 ml-7">    the user enter the value of resistor it wants and the nearest real value of this resistance is instantiated<br>                  
+          1. User enter the <b><em>value</em></b> and <b><em>symbol</em></b> through the keypad<br>
+          2. <b><em>value</em></b> is converted to the nearest real value available<br>
+          3. <b><em>value</em></b> is converted into <v><em>resistance</em></v> in ohms by interpreting the <b><em>symbol</em></b><br>
+          4. <b><em>color bands</em></b> are determined (no1band, no2band, multiplier band) of resistance based on Resistance value in ohms<br>
+          5. resistance and color bands are assigned to  the Instantiated Resistor</p>
+        <img src="../assets/images/projects/electronics-simulator/UI_resistor.jpg" style="border-radius:0%;max-width:300px;height:auto;margin-right: 10px;">
+        </div>
+      <div class="mb-4">
+        <!-- Subheading + Dot Row -->
+        <div class="flex items-center gap-3 mb-1">
+          <div class="timeline-dot"></div>
+          <h3 class="text-lg font-semibold">Wire Connection</h3>
+        </div>
+  
+        <!-- Description -->
+        <p class="text-md mb-4 ml-7"> by pressing primary button right (A)
+          <br><br>
+          1. checks if we are in simulation mode or connection mode<br>
+          2.1 if in simulation mode: no wire instantiated and cannot connect<br>
+          2.2 if in connection mode: wire instantiated and connect wire to the terminal of component<br>
+          (each terminal of components has socket that interacts with the wire terminal to connect to it)<br>
+          5. resistance and color bands are assigned to  the Instantiated Resistor<br>
+        </p>
+      </div>
+    </div>
+    <h2 class="text-2xl font-semibold mb-4">First Try</h2>
+
+    <!-- Italic Callout -->
+    <p class="italic mb-6">
+      I first tried making the game 4 months ago using <b><em>Oculus Integration</em></b> but the code was very spaghetti and it contained some bugs.That's why later I made it with much cleaner and maintable code
+    </p>
+  
+    <!-- Video -->
+    <div class="w-full rounded-lg overflow-hidden shadow-lg mb-6" style="height: 350px;">
+      <iframe src="https://www.youtube.com/embed/sziUdryLRm4" title="Beat Saber Clone First Try"
+        allowfullscreen class="w-full h-full"></iframe>
+  </div>
+</div>
+ 
+
+  </section>
+  
+
+  <!-- Footer Include -->
+ <div class="max-w-4xl mx-auto flex flex-col items-center justify-center gap-2 text-center">
+  <p class="text-sm">© 2025 Youkii — Built with ☕ and Passion</p>
+  <div class="flex items-center gap-4 text-xl">
+    <!-- icons or links -->
+  </div>
+</div>
+
+  <!-- JS -->
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>
