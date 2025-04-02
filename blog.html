@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+    // Early theme application before page render to prevent flicker
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salma Ramadan Portfolio</title>
+
+  <!-- Tailwind CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" type="image/x-icon" href="assets/images/youkii.png">
+
+</head>
+<body>
+  <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-[#fdf6ec] dark:bg-[#2a1f1a] transition-opacity duration-500">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <div class="loader-icon">
+        🐾 <!-- or ✦ or 🔆 or 🌀 -->
+      </div>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-50 bg-[#fef8ec] dark:bg-[#2c2621] shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="index.html#about" class="text-2xl font-bold text-brown-800 dark:text-[#e8dccf]">Youkii</a>
+  
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-6 text-brown-800 dark:text-[#e8dccf] font-medium">
+        <nav class="flex space-x-6">
+          <a href="index.html#about" class="nav-link">Home</a>
+        </nav>
+        <!-- Theme Toggle -->
+<button id="toggleTheme" class="theme-toggle p-2 rounded-full ml-2">🌓</button>
+      </div>
+  
+      <!-- Mobile Nav -->
+      <div class="md:hidden flex items-center gap-3">
+        <button id="nav-toggle" class="focus:outline-none order-1">
+          <svg class="w-7 h-7 text-brown-800 dark:text-[#e8dccf]" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      <button id="toggleThemeMobile" class="theme-toggle p-2 rounded-full order-2">🌓</button>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden flex flex-col items-start space-y-3 pb-6 px-6 text-brown-800 dark:text-[#e8dccf] font-medium">
+      <a href="index.html" class="nav-link">Home</a>
+    </div>
+  </header>
+  
+
+  <section class="py-16 px-6 bg-[#fdf6ec] dark:bg-[#2c2621]">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-brown-800 dark:text-[#e8dccf]">
+      Digital Garden 🌱
+    </h2>
+  
+    <div class="max-w-3xl mx-auto space-y-10">
+  
+      <!-- Blog Style Entry -->
+      <article class="bg-white dark:bg-[#3a2d26] rounded-xl p-6 shadow-md transition hover:shadow-lg">
+        <h3 class="text-2xl font-semibold mb-2 text-brown-800 dark:text-[#e8dccf]">🌷 My Digital Garden</h3>
+        <p class="text-md text-brown-700 dark:text-[#e8dccf]/80 mb-2">
+          A bit about me and my garden
+        </p>
+        <div class="text-sm text-brown-500 dark:text-[#d5c7ba]">
+          June 27, 2022 · 1 min read · 182 words
+        </div>
+        <button class="mt-4 text-yellow-700 dark:text-yellow-300 hover:underline">♡ 12</button>
+      </article>
+  
+      <!-- Journal Style Entry -->
+      <div class="border-l-4 border-yellow-400 pl-4 ml-2">
+        <p class="text-sm text-brown-600 dark:text-[#e8dccf] mb-1">📝 Jan 6, 2025</p>
+        <p class="text-lg text-brown-800 dark:text-[#e8dccf] font-semibold">My Tech Goals for 2025</p>
+        <p class="text-brown-700 dark:text-[#e8dccf]/80">In my ✨ creative ✨ era</p>
+        <button class="mt-2 text-yellow-700 dark:text-yellow-300 hover:underline">♡ 5</button>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+  
+ <!-- Footer -->
+ <div class="max-w-4xl mx-auto flex flex-col items-center justify-center gap-2 text-center">
+  <p class="text-sm">© 2025 Youkii — Built with ☕ and Passion</p>
+  <div class="flex items-center gap-4 text-xl">
+    <!-- icons or links -->
+  </div>
+</div>
+
+
+  <!-- JS -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
