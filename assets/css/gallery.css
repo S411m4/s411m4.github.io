@@ -1,0 +1,107 @@
+.tab-option {
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  background-color: #e8dccf;
+  color: #5c4537;
+  transition: background-color 0.2s ease;
+}
+.tab-option:hover {
+  background-color: #f6d25e;
+}
+.tab-option.active {
+  background-color: #e8c674;
+  color: #2c2621;
+  font-weight: 600;
+}
+.dark .tab-option.active {
+  background-color: #f5bf3f;
+  color: #2a1f1a;
+}
+
+.dark .tab-option {
+  background-color: #3a2d26;
+  color: #e8dccf;
+}
+.tab-option:hover {
+  background-color: #f5d674;
+}
+.dark .tab-option:hover {
+  background-color: #e3ab1c;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+.gallery-img:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+#imageModal
+{
+  backdrop-filter: blur(4px);
+
+}
+
+/* Modal box itself */
+#imageModal .modal-content {
+  background-color: #fdf6ec; /* light mode pad color */
+  color: #5c4537; /* brown text */
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+/* Modal box in dark mode */
+.dark #imageModal .modal-content {
+  background-color: #2c2621; /* dark mode pad color */
+  color: #e8dccf; /* light beige text */
+}
+
+/* Modal Image */
+#modalImage {
+  max-width: 100%;
+  max-height: 70vh;
+  margin: 0 auto;
+  display: block;
+  border-radius: 0.5rem;
+  object-fit: contain;
+}
+
+/* Caption under expanded image */
+#modalCaption {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: #e3ab1c;
+}
+
+.dark #modalCaption {
+  color: #e3ab1c;
+}
+
+/* Close button styling */
+#closeModal {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-size: 1.5rem;
+  color: #e8dccf;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#closeModal:hover {
+  color: #eab308;
+}
+
+.dark #closeModal {
+  color: #e8dccf;
+}
+
+.dark #closeModal:hover {
+  color: #facc15;
+}

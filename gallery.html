@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery – Youkii</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/gallery.css" />
+  <link rel="icon" type="image/x-icon" href="assets/images/youkii.png">
+
+</head>
+<body class="bg-[#fdf6ec] dark:bg-[#2a1f1a] text-brown-800 dark:text-[#e8dccf]">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-[#fef8ec] dark:bg-[#2c2621] shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html#about" class="text-2xl font-bold">Youkii</a>
+      <div class="hidden md:flex items-center gap-6 font-medium">
+        <a href="index.html" class="nav-link">Home</a>
+        <button id="toggleTheme" class="theme-toggle p-2 rounded-full ml-2">🌓</button>
+      </div>
+      <!-- Mobile Nav -->
+      <div class="md:hidden flex items-center gap-3">
+        <button id="nav-toggle" class="focus:outline-none order-1">
+          <svg class="w-7 h-7 text-brown-800 dark:text-[#e8dccf]" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      <button id="toggleThemeMobile" class="theme-toggle p-2 rounded-full order-2">🌓</button>
+      </div>
+    </div>
+
+ <!-- Mobile Menu -->
+ <div id="mobile-menu" class="md:hidden hidden flex flex-col items-start space-y-3 pb-6 px-6 text-brown-800 dark:text-[#e8dccf] font-medium">
+  <a href="index.html" class="nav-link">Home</a>
+</div>
+</header>
+  <!-- Gallery -->
+  <section class="px-4 py-16 min-h-screen">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 id="galleryTitle" class="text-3xl font-bold mb-2">Gallery</h2>
+      <p id="eventDate" class="text-brown-600 dark:text-[#d5c7ba] mb-6 text-sm"></p>
+
+      <div id="eventTabs" class="flex flex-wrap justify-center gap-4 mb-10 text-sm md:text-base font-medium">
+      </div>
+
+      <div id="galleryGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="imageModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center">
+    <div class="bg-[#fdf6ec] dark:bg-[#2c2621] rounded-lg shadow-lg max-w-3xl w-full mx-4 p-4 relative">
+      <button id="closeModal" class="absolute top-2 right-2 text-2xl text-gray-600 dark:text-[#e8dccf] hover:text-red-500">✕</button>
+      <img id="modalImage" src="" alt="Expanded" class="w-full h-auto rounded-md mb-4 max-h-[70vh]" />
+      <p id="modalCaption" class="text-center text-sm text-brown-800 dark:text-[#e8dccf]"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-sm bg-[#fdf6ec] dark:bg-[#1e1a16]">
+    © 2025 Youkii — Built with ☕ and Passion
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+.blog-card {
+    background-color: #fff8e5; /* soft cream */
+    border: 2px solid #c4a489; /* cozy warm brown */
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Inside text */
+  .blog-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #5e4b41;
+  }
+  
+  .blog-card p {
+    color: #7d675b;
+    margin-bottom: 0.5rem;
+  }
+  
+  .blog-card .meta {
+    font-size: 0.85rem;
+    color: #a08976;
+  }
+  
+  .blog-card .likes {
+    margin-top: 0.75rem;
+    color: #e07a5f;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  
+  /* Dark Mode */
+  html.dark .blog-card {
+    background-color: #5c4537;
+    border-color: #5a4537;
+  }
+  
+  html.dark .blog-card h3 {
+    color: #f4b97d;
+  }
+  
+  html.dark .blog-card p {
+    color: #e8dccf;
+  }
+  
+  html.dark .blog-card .meta {
+    color: #d5c7ba;
+  }
+  
+  html.dark .blog-card .likes {
+    color: #f4b97d;
+  }
+  
+  .prose {
+    color: #5e4b41;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.8;
+  }
+  .dark .prose {
+    color: #e8dccf;
+  }
+  
+  .prose img {
+    border-radius: 0.75rem;
+    margin: 1rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  .prose a {
+    color: #e0a96d;
+    text-decoration: underline;
+  }
+  .dark .prose a {
+    color: #f4b97d;
+  }
+  
