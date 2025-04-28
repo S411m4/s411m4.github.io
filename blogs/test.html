@@ -91,16 +91,18 @@
 
       <h2 id="quick-coding-snippet" class="text-2xl font-semibold">🧩 Quick Coding Snippet</h2>
       <pre class="bg-[#fff8e5] dark:bg-[#3a2d26] p-4 rounded-lg overflow-x-auto">
-<code>using UnityEngine;
-
-public class HelloWorld : MonoBehaviour
-{
-    void Start()
-    {
-        Debug.Log("Hello, Virtual World!");
-    }
-}
-</code>
+        <article class="prose prose-lg dark:prose-dark max-w-none">
+          <div class="code-block">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre><code>
+        for (let i = 0; i &lt; 5; i++) {
+          text += "The number is " + i + "&lt;br&gt;";
+        }
+            </code></pre>
+          </div>
+        
+        </article>
+        
       </pre>
 
       <h2 id="watch-this" class="text-2xl font-semibold">🎥 Watch This!</h2>
@@ -125,5 +127,15 @@ public class HelloWorld : MonoBehaviour
   </footer>
 
   <script src="../assets/js/script.js"></script>
+  <script>
+    function copyCode(button) {
+      const code = button.nextElementSibling.innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        button.innerText = 'Copied!';
+        setTimeout(() => button.innerText = 'Copy', 1500);
+      });
+    }
+    </script>
+    
 </body>
 </html>
